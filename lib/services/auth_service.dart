@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:social_trip/models/user.dart' as Users;
 import 'package:social_trip/helper/helper_functions.dart';
-import 'package:social_trip/models/user.dart';
-import 'package:social_trip/services/database_service.dart';
+
+import 'database_service.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
 
   // create user object based on FirebaseUser
-  User _userFromFirebaseUser(User user) {
-    return (user != null) ? User(uid: user.uid) : null;
+  Users.User _userFromFirebaseUser(User user) {
+    return (user != null) ?  Users.User(uid: user.uid) : null;
   }
 
 

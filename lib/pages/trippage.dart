@@ -11,6 +11,7 @@ import 'package:social_trip/widgets/group_tile.dart';
 
 import 'addatrip.dart';
 import 'grouprequests.dart';
+import 'home_page.dart';
 
 class TripPage extends StatefulWidget {
   final String groupId;
@@ -279,6 +280,67 @@ class _TripPageState extends State<TripPage> {
     );
   }
 
+  TextEditingController groupname;
+  TextEditingController groupdesc;
+  void _popupDialog(BuildContext context) {
+    groupname = TextEditingController(text: widget.groupName);
+    groupdesc = TextEditingController(text: widget.groupdescription);
+
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    Widget createButton = FlatButton(
+        child: Text("Update"),
+        onPressed: () async {
+          await HelperFunctions.getUserNameSharedPreference().then((val) {
+            DatabaseService(uid: _user.uid).updateGroup(
+                oldgroupid:widget.groupId,
+                oldgroupname:widget.groupName,
+                userName: val,
+                groupName: groupname.text,
+                description: groupdesc.text,
+                groupid: widget.groupId);
+          });
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomePage()));
+        });
+
+    AlertDialog alert = AlertDialog(
+      title: Text("Change Group Name and Description"),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+                controller: groupname,
+                decoration: InputDecoration(hintText: 'Name of Group'),
+                style: TextStyle(
+                    fontSize: 15.0, height: 2.0, color: Colors.black)),
+            TextField(
+                controller: groupdesc,
+                decoration: InputDecoration(hintText: 'description of group'),
+                onChanged: (val) {},
+                style: TextStyle(
+                    fontSize: 15.0, height: 2.0, color: Colors.black)),
+          ],
+        ),
+      ),
+      actions: [
+        cancelButton,
+        createButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
   String _destructureId(String res) {
     // print(res.substring(0, res.indexOf('_')));
     return res.substring(0, res.indexOf('_'));

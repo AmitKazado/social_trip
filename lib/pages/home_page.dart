@@ -125,10 +125,12 @@ class _HomePageState extends State<HomePage> {
                         groupName: snapshot.data.documents[index]['groupname']);
                   });
             } else {
-              return noGroupWidget();
+              return Container();
+
             }
           } else {
-            return noGroupWidget();
+            return Container();
+
           }
         } else {
           return Center(child: CircularProgressIndicator());

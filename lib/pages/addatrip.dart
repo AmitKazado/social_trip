@@ -49,15 +49,17 @@ class _AddaTripState extends State<AddaTrip> {
   String triplocation = '';
 
   File _pickedImage;
-  final _imagePicker = ImagePicker();
+  final ImagePicker _picker = ImagePicker();
 
   TextEditingController address;
   TextEditingController date;
   TextEditingController ctripname;
 
   Future _pickImage() async {
-    final pickedImageFile = await ImagePicker.pickImage(
-        source: ImageSource.gallery, imageQuality: 50);
+    final pickedImageFile =await _picker.pickImage(
+        source: ImageSource.gallery, imageQuality: 50
+    );
+
 
     setState(() {
       _pickedImage = File(pickedImageFile.path);
@@ -236,7 +238,7 @@ class _AddaTripState extends State<AddaTrip> {
                               if (widget.username == null ||
                                   widget.groupname == null ||
                                   ctripname.text.isEmpty ||
-                                  picurl == null ||
+
                                   address.text.isEmpty ||
                                   widget.groupid == null) {
                                 Fluttertoast.showToast(
@@ -247,7 +249,7 @@ class _AddaTripState extends State<AddaTrip> {
                                   _isLoading = true;
                                 });
                                 dynamic _user =
-                                    await FirebaseAuth.instance.currentUser();
+                                    await FirebaseAuth.instance.currentUser;
 
                                 await DatabaseService(uid: _user.uid)
                                     .createTrips(

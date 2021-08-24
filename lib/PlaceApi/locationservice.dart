@@ -125,7 +125,7 @@ class _PlacesAutoCompleteState extends State<PlacesAutoComplete> {
                     color: Colors.black,
                   ),
                 ),
-                hintText: "Enter your shipping address",
+                hintText: "Enter your trip location",
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(left: 8.0, top: 16.0),
               ),

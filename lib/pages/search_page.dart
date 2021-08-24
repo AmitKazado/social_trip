@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
         searchResultSnapshot = snapshot;
 
         searchResultSnapshot.docs.forEach((doc) {
-          searchmodel = SearchModel.fromMap(doc.data);
+          searchmodel = SearchModel.fromMap(doc.data());
           searchlist.add(searchmodel);
           print(searchlist[0].groupName);
 
