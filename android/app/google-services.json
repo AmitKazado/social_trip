@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:812603883782:android:2f898a55e4ac7ed8ca1e87",
+        "android_client_info": {
+          "package_name": "com.example.social_trip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812603883782-b71uu6go16nhng5c4vt9d321hu923tgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVS9dXQwXIQj39xhhrWBZCg02v5Qe1_8g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "812603883782-b71uu6go16nhng5c4vt9d321hu923tgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:812603883782:android:fa1a8ff7380c7417ca1e87",
         "android_client_info": {
           "package_name": "com.socialtrip.app"

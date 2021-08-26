@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:social_trip/pages/chat_page.dart';
 import 'package:social_trip/pages/home_page.dart';
 import 'package:social_trip/pages/trippage.dart';
-import 'package:social_trip/services/database_service.dart';
+import 'package:social_trip/controllers/services/database_service.dart';
 
 class GroupTile extends StatelessWidget {
   final String userName;

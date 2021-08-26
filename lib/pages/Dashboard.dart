@@ -5,11 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:social_trip/helper/helper_functions.dart';
+import 'package:social_trip/controllers/helper/helper_functions.dart';
 import 'package:social_trip/models/pendingrequest.dart';
 import 'package:social_trip/pages/map.dart';
 import 'package:social_trip/pages/search_page.dart';
-import 'package:social_trip/services/database_service.dart';
+import 'package:social_trip/controllers/services/database_service.dart';
 import 'dart:io';
 
 import 'drawer.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:social_trip/PlaceApi/placeApiprovider.dart';
+import 'package:social_trip/controllers/PlaceApi/placeApiprovider.dart';
 import 'package:social_trip/pages/addatrip.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
@@ -91,15 +91,8 @@ class _PlacesAutoCompleteState extends State<PlacesAutoComplete> {
                       }),
                       place: result.description);
 
-                  // latlong.value =
-                  //     await json.decode(await datastore.read("latlong"));
-                  // print("the lat long is ${latlong.value}");
-                  // print(latlong.value['lat']);
 
                   setState(() {
-                    // datastore.write("placename", result.description);
-                    // datastore.write("latlong", json.encode(placeDetails));
-
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

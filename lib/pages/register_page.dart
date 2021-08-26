@@ -1,12 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:social_trip/helper/helper_functions.dart';
+import 'package:social_trip/controllers/helper/helper_functions.dart';
 import 'package:social_trip/pages/home_page.dart';
-import 'package:social_trip/services/auth_service.dart';
-import 'package:social_trip/shared/constants.dart';
-import 'package:social_trip/shared/loading.dart';
+import 'package:social_trip/controllers/services/auth_service.dart';
+import 'package:social_trip/controllers/shared/constants.dart';
+import 'package:social_trip/controllers/shared/loading.dart';
 
-import '../helper/helper_functions.dart';
+import '../controllers/helper/helper_functions.dart';
 import 'Dashboard.dart';
 
 class RegisterPage extends StatefulWidget {

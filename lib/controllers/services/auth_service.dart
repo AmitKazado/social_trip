@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:social_trip/models/user.dart' as Users;
-import 'package:social_trip/helper/helper_functions.dart';
+import 'package:social_trip/controllers/helper/helper_functions.dart';
 
 import 'database_service.dart';
 

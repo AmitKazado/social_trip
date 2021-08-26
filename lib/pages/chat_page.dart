@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:social_trip/models/locationmodel.dart';
-import 'package:social_trip/services/database_service.dart';
+import 'package:social_trip/controllers/services/database_service.dart';
 import 'package:social_trip/widgets/message_tile.dart';
 import 'package:location/location.dart';
 import 'package:geocoding/geocoding.dart' as geo;

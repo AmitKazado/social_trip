@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_trip/pages/Dashboard.dart';
 
-import '../services/auth_service.dart';
+import '../controllers/services/auth_service.dart';
 import 'authenticate_page.dart';
 import 'map.dart';
 import 'profile_page.dart';

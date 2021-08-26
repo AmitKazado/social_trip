@@ -82,23 +82,7 @@ class PlaceApiProvider {
         if (result['status'] == 'OK') {
           final components = result['result']['geometry']['location'];
           print("the logn and lat is $components");
-          // build result
-          // final place = Place();
-          // components.forEach((c) {
-          //   final List type = c['types'];
-          //   if (type.contains('street_number')) {
-          //     place.streetNumber = c['long_name'];
-          //   }
-          //   if (type.contains('route')) {
-          //     place.street = c['long_name'];
-          //   }
-          //   if (type.contains('locality')) {
-          //     place.city = c['long_name'];
-          //   }
-          //   if (type.contains('postal_code')) {
-          //     place.zipCode = c['long_name'];
-          //   }
-          // });
+
           return components;
         }
       }

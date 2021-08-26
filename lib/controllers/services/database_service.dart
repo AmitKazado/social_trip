@@ -8,12 +8,14 @@ class DatabaseService {
 
   // Collection reference
   final CollectionReference userCollection =
-  FirebaseFirestore.instance.collection('users');
-  final CollectionReference groupCollection =
   FirebaseFirestore.instance.collection('groups');
 
   final CollectionReference tripsCollection =
   FirebaseFirestore.instance.collection('groups');
+
+  final CollectionReference groupCollection =
+  FirebaseFirestore.instance.collection('groups');
+
   // update userdata
   Future updateUserData(
       String fullName, String email, String password, String usertype) async {
@@ -27,6 +29,11 @@ class DatabaseService {
       'profilePic': ''
     });
   }
+  //get group description
+
+  getdescription(String groupId) async {
+    return FirebaseFirestore.instance.collection('groups').doc(groupId).get();
+  }
 
   // update group
   Future updateGroup(
@@ -38,12 +45,10 @@ class DatabaseService {
         oldgroupname}) async {
     DocumentReference groupDocRef = await groupCollection
         .doc(groupid)
-        .update({
-      'groupName': groupName,
-      'groupdescription': description
-    }).then((result) {
-      print("new update");
-    }).catchError((onError) {
+        .update({'groupName': groupName, 'groupdescription': description}).then(
+            (result) {
+          print("new update");
+        }).catchError((onError) {
       print("onError");
     });
 
@@ -56,6 +61,7 @@ class DatabaseService {
       'groups': FieldValue.arrayUnion([groupid + '_' + groupName])
     });
   }
+
   // create group
   Future createGroup(String userName, String groupName, description) async {
     DocumentReference groupDocRef = await groupCollection.add({
@@ -77,8 +83,7 @@ class DatabaseService {
 
     DocumentReference userDocRef = userCollection.doc(uid);
     return await userDocRef.update({
-      'groups':
-      FieldValue.arrayUnion([groupDocRef.id + '_' + groupName])
+      'groups': FieldValue.arrayUnion([groupDocRef.id + '_' + groupName])
     });
   }
 
@@ -170,19 +175,8 @@ class DatabaseService {
             msg: "Please wait for admin to approve your request");
         return true;
       }
-      //print('nay');
-
-      // await userDocRef.update({
-      //   'groups': FieldValue.arrayUnion([groupId + '_' + groupName])
-      // });
-
-      // await groupDocRef.update({
-      //   'members': FieldValue.arrayUnion([uid + '_' + userName])
-      // });
     }
   }
-
-//adminaccept user request
 
 // toggling the user group join
   Future acceptingGroupRequest(
@@ -350,15 +344,6 @@ class DatabaseService {
         Fluttertoast.showToast(
             msg: "Please wait for admin to approve your request");
       }
-
-      //print('nay');
-      // await userDocRef.update({
-      //   'trips': FieldValue.arrayUnion([tripId + '_' + tripName])
-      // });
-
-      // await tripDocRef.update({
-      //   'members': FieldValue.arrayUnion([uid + '_' + userName])
-      // });
     }
   }
 
@@ -442,22 +427,19 @@ class DatabaseService {
 
   // get user groups
   getUserGroups() async {
-    // return await Firestore.instance.collection("users").where('email', isEqualTo: email).snapshots();
     return FirebaseFirestore.instance.collection("users").doc(uid).snapshots();
   }
 
   getpendingGroups() async {
-    // return await Firestore.instance.collection("users").where('email', isEqualTo: email).snapshots();
     return FirebaseFirestore.instance
         .collection('grouprequests')
         .where("userid", isEqualTo: uid)
         .snapshots();
   }
-//get pending group requests //admi
+//get pending group requests //admin
 
   getpendingGroupsrequests(groupid) async {
     print("the group id is $groupid");
-    // return await Firestore.instance.collection("users").where('email', isEqualTo: email).snapshots();
     return FirebaseFirestore.instance
         .collection('grouprequests')
         .where("groupid", isEqualTo: groupid)

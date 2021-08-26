@@ -5,14 +5,14 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:social_trip/PlaceApi/locationservice.dart';
-import 'package:social_trip/helper/helper_functions.dart';
+import 'package:social_trip/controllers/PlaceApi/locationservice.dart';
+import 'package:social_trip/controllers/helper/helper_functions.dart';
 import 'package:social_trip/pages/home_page.dart';
 import 'package:social_trip/pages/trippage.dart';
-import 'package:social_trip/services/auth_service.dart';
-import 'package:social_trip/services/database_service.dart';
-import 'package:social_trip/shared/constants.dart';
-import 'package:social_trip/shared/loading.dart';
+import 'package:social_trip/controllers/services/auth_service.dart';
+import 'package:social_trip/controllers/services/database_service.dart';
+import 'package:social_trip/controllers/shared/constants.dart';
+import 'package:social_trip/controllers/shared/loading.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddaTrip extends StatefulWidget {

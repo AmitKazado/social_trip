@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_trip/pages/authenticate_page.dart';
 import 'package:social_trip/pages/drawer.dart';
 import 'package:social_trip/pages/home_page.dart';
-import 'package:social_trip/services/auth_service.dart';
+import 'package:social_trip/controllers/services/auth_service.dart';
 
 class ProfilePage extends StatelessWidget {
   final String userName;

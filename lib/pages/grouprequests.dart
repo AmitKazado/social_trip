@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:social_trip/helper/helper_functions.dart';
+import 'package:social_trip/controllers/helper/helper_functions.dart';
 import 'package:social_trip/models/grouprequests.dart';
 import 'package:social_trip/models/tripdetails.dart';
 import 'package:social_trip/pages/chat_page.dart';
-import 'package:social_trip/services/auth_service.dart';
-import 'package:social_trip/services/database_service.dart';
+import 'package:social_trip/controllers/services/auth_service.dart';
+import 'package:social_trip/controllers/services/database_service.dart';
 import 'package:social_trip/widgets/group_tile.dart';
 
 import 'addatrip.dart';
